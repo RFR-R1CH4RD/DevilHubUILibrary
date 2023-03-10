@@ -324,8 +324,7 @@ do
 
     function Library:CreateNotification(Title, Text, Duration)
         local Theme = {}
-        local File = readfile('
-        UiLibraryCurrentTheme.json')
+        local File = readfile('VisualUILibraryCurrentTheme.json')
         local Table = HttpService:JSONDecode(File)
         for Index, Value in next, Table do
             Theme[Index] = Utility:JoinColor(Value)
@@ -336,14 +335,14 @@ do
             local Text = Text or 'Text'
             local Duration = Duration or 5
 
-            if not CoreGui:FindFirstChild('DevilHub Ui Library Notifications') then
+            if not CoreGui:FindFirstChild('DevilHub Ui Library | Notifications') then
                 Utility:Create('ScreenGui', {
-                    Name = 'DevilHub Ui Library Notifications',
+                    Name = 'DevilHub Ui Library | Notifications',
                     Parent = CoreGui
                 })
             else
                 Utility:Create('Frame', {
-                    Parent = CoreGui:FindFirstChild('DevilHub Ui Library Notifications'),
+                    Parent = CoreGui:FindFirstChild('DevilHub Ui Library | Notifications'),
                     Name = 'Notification'..tostring(Amount + 1),
                     BackgroundColor3 = Theme.BackgroundColor,
                     BorderSizePixel = 0,
@@ -399,7 +398,7 @@ do
                 })
 
                 Amount = Amount + 1
-                local Holder = CoreGui:FindFirstChild('DevilHub Ui Library Notifications')['Notification'..tostring(Amount)]
+                local Holder = CoreGui:FindFirstChild('DevilHub Ui Library | Notifications')['Notification'..tostring(Amount)]
                 local TitleObj = Holder['NotificationTitle']
                 local TextObj = Holder['NotificationText']
                 local TextSize = TextService:GetTextSize(Text, 14, Enum.Font.Gotham, Vector2.new(300, math.huge))
@@ -442,7 +441,7 @@ do
         end
 
         local Theme = {}
-        local File = readfile('DevilHubUiLibraryCurrentTheme.json')
+        local File = readfile('VisualUILibraryCurrentTheme.json')
         local Table = HttpService:JSONDecode(File)
         for Index, Value in next, Table do
             Theme[Index] = Utility:JoinColor(Value)
@@ -957,7 +956,7 @@ function Library:ToggleUI()
 end
 
 function Library:SetTransparency(Transparency, NotificationBool)
-    local UI = CoreGui:WaitForChild('DevilHub Ui Library ')
+    local UI = CoreGui:WaitForChild('DevilHub Ui Library')
     local Blacklist = {
         'UIPadding',
         'UICorner',
@@ -1139,13 +1138,13 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
         NewTable[Index] = Utility:SplitColor(Value)
     end
 
-    if isfile('DevilHubUiLibraryCurrentTheme.json') then
-        delfile('DevilHubUiLibraryCurrentTheme.json')
+    if isfile('VisualUILibraryCurrentTheme.json') then
+        delfile('VisualUILibraryCurrentTheme.json')
     end
 
     ConfigF = ConfigFolder
 
-    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
 
     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
 
@@ -1484,7 +1483,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                 for Index, Value in next, Theme do
                     NewTable[Index] = Utility:SplitColor(Value)
                 end
-                writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                 Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                 ChangeThemeValue()
             elseif type(NewTheme) == 'string' then
@@ -1495,7 +1494,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'default' then
@@ -1504,7 +1503,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'lighter' then
@@ -1513,7 +1512,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'light' then
@@ -1522,7 +1521,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'light+' then
@@ -1531,7 +1530,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'discord' then
@@ -1540,7 +1539,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'red and black' then
@@ -1549,7 +1548,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'nordic dark' then
@@ -1558,7 +1557,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'nordic light' then
@@ -1567,7 +1566,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'purple' then
@@ -1576,7 +1575,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'sentinel' then
@@ -1585,7 +1584,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'synapse x' then
@@ -1594,7 +1593,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'krnl' then
@@ -1603,7 +1602,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'script-ware' then
@@ -1612,7 +1611,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 elseif NewTheme == 'kiriot' then
@@ -1621,7 +1620,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
                     for Index, Value in next, Theme do
                         NewTable[Index] = Utility:SplitColor(Value)
                     end
-                    writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+                    writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
                     Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
                     ChangeThemeValue()
                 end
@@ -1636,7 +1635,7 @@ function Library:CreateWindow(HubName, GameName, IntroText, IntroIcon, ImprovePe
             for Index, Value in next, Theme do
                 NewTable[Index] = Utility:SplitColor(Value)
             end
-            writefile('DevilHubUiLibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
+            writefile('VisualUILibraryCurrentTheme.json', HttpService:JSONEncode(NewTable))
             Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
             ChangeThemeValue()
         end
