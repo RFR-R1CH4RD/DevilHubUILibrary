@@ -15,7 +15,8 @@ local Amount = 0
 local ConfigF
 local BreakAllLoops = false
 local ChangeTheme = false
-local NotificationTransparency = 0
+local 
+ficationTransparency = 0
 local Utility = {}
 local Library = {}
 local Config = {}
@@ -324,7 +325,7 @@ do
 
     function Library:CreateNotification(Title, Text, Duration)
         local Theme = {}
-        local File = readfile('DevilHubUiLibraryLibraryCurrentTheme.json')
+        local File = readfile('DevilHubUiLibraryCurrentTheme.json')
         local Table = HttpService:JSONDecode(File)
         for Index, Value in next, Table do
             Theme[Index] = Utility:JoinColor(Value)
